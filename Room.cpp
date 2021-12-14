@@ -10,6 +10,14 @@ Room::Room(char* newDescription){
 strcpy(description, newDescription);
 
 }
+Item Room::getItem(char* itemTitle){
+vector <Item> :: iterator ptr;
+for(ptr = Items.begin(); ptr != Items.end(); ptr++){
+if(strcmp(ptr->getDescription(), itemTitle) == 0){
+return (*ptr);
+    }
+}
+}
 
 Room* Room::getExit(char* newDirection){
     map<char*, Room*>:: iterator ptr;
