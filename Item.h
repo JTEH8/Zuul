@@ -13,4 +13,5 @@ Item(char* newDescription);
 char* getDescription();
 
 };
+
 #endif
