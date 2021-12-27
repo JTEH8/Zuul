@@ -10,6 +10,10 @@ Room::Room(char* newDescription){
 strcpy(description, newDescription);
 
 }
+void Room::setItem(Item newItem){
+Items.push_back(newItem);
+}
+
 Item Room::getItem(char* itemTitle){
 vector <Item> :: iterator ptr;
 for(ptr = Items.begin(); ptr != Items.end(); ptr++){

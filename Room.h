@@ -21,7 +21,6 @@ void setExit(char* newDirection, Room* neighbor);
 Item getItem(char* itemTitle);
 void setItem(Item newItem);
 char* getRoomDescription();
-
 };
 
 #endif
