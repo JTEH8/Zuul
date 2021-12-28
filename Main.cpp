@@ -77,12 +77,23 @@ Courtyard->setItem(*Jacket);
 Room* Theatre = new Room("In the University of Oregon's Miller Theatre Complex.");
 //Student Center
 Room* StudentCenter = new Room("In the University of Oregon's Erb Memorial Union.");
+Item* Notebook = new Item("A green one-subject notebook of lined paper.");
+StudentCenter->setItem(*Notebook);
 //Lecture Hall
 Room* LectureHall = new Room("In the University of Oregon's Columbia Lecture Hall.");
 //Business School
 Room* BusinessSchool = new Room("In the University of Oregon's Lundquist College of Busines.");
 //Dining Hall
 Room* DiningHall = new Room("In the University of Oregon's Barnhart Lecture Hall.");
+//Dormitories
+Room* Dormitories = new Room("In the University of Oregon's Earl Dormitory Hall.");
+Item* Schedule = new Item("A printed schedule of all the rounds for the weekend. I'm definitely going to need this.");
+Dormitories->setItem(*Schedule);
+//Health Services and Counseling
+Room* HealthServices = new Room("In the University of Oregon's Health Services Building");
+Item* Backpack = new Item("A worn black Adidas backpack.");
+HealthServices->setItem(*Backpack);
+
 
 //Setting Exits
 Library-> setExit(South, LawSchool);
@@ -116,6 +127,9 @@ LectureHall-> setExit(West, ChemistryLab);
 BusinessSchool-> setExit(North, LectureHall);
 BusinessSchool-> setExit(South, DiningHall);
 BusinessSchool-> setExit(West, Courtyard);
+DiningHall-> setExit(North, BusinessSchool);
+DiningHall-> setExit(East, HealthServices);
+DiningHall-> setExit(West, Theatre);
 
 
 
