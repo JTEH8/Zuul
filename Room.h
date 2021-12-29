@@ -17,9 +17,10 @@ Room(char* newDescription);
 ~Room();
 Room* getExit(char* newDirection);
 void setExit(char* newDirection, Room* neighbor);
-
+void ExitsAndItems();
 Item getItem(char* itemTitle);
 void setItem(Item newItem);
+void printItems();
 char* getRoomDescription();
 };
 
