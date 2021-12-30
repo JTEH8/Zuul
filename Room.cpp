@@ -22,6 +22,23 @@ return (*ptr);
     }
 }
 }
+
+void Room::removeItem(char* itemTitle){
+vector <Item> :: iterator ptr2;
+for(ptr2 = Items.begin(); ptr2 != Items.end(); ptr2++){
+if(strcmp(ptr2->getDescription(), itemTitle) == 0){
+Items.erase(ptr2);
+break;
+    }
+}
+}
+void Room :: printItems(){
+    vector <Item> :: iterator ptr3;
+    for(ptr3= Items.begin(); ptr3 != Items.end(); ptr3++){
+    cout << ptr3->getDescription() << "," << endl;
+  }
+}
+
 void Room::ExitsAndItems(){
     cout << "Exits:" << endl;
   //iterate through exits and print out directions
@@ -44,12 +61,7 @@ return ptr->second;
 char* Room :: getRoomDescription(){
     return description;
 }
-void Room :: printItems(){
-    vector <Item> :: iterator ptr2;
-    for(ptr2= Items.begin(); ptr2 != Items.end(); ptr2++){
-    cout << ptr2->getDescription() << "," << endl;
-  }
-}
+
 
 
 

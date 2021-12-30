@@ -20,6 +20,7 @@ void setExit(char* newDirection, Room* neighbor);
 void ExitsAndItems();
 Item getItem(char* itemTitle);
 void setItem(Item newItem);
+void removeItem(char* itemTitle);
 void printItems();
 char* getRoomDescription();
 };
