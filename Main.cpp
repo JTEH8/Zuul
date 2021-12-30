@@ -132,7 +132,7 @@ int main(){
     cout << "Once you do that, please return them to me at the dorimtory hall." << endl;
     cout << currentRoom->getRoomDescription() << endl;
     currentRoom->ExitsAndItems();
-    cout << "It's getting late, we better get started. Your commands are HELP, MOVE, GET, DROP, and INVENTORY. " << endl;
+    cout << "It's getting late, we better get started. Your commands are HELP, MOVE, GET, DROP, QUIT, and INVENTORY. " << endl;
     cout << "Enter a command: " << endl; 
     while(x == true){
         cin >> input;
@@ -145,7 +145,16 @@ int main(){
         else if(strcmp(input, "GET") == 0){
         get(currentRoom, inventory);
         }
-
+        else if(strcmp(input, "DROP") == 0){
+        drop(currentRoom, inventory);
+        }
+        else if(strcmp(input, "QUIT") == 0){
+        cout << "Thanks for playing! See you next time!" << endl;
+        exit(0);
+        }
+        else if(strcmp(input, "INVENTORY") == 0){
+        printInventory(inventory);
+        }
     }
 }
 }
@@ -185,18 +194,23 @@ if(checkComplete(inventory) == true){
     }
 }
 void drop(Room* &currentRoom,vector<Item> &inventory){
+vector<Item>::iterator ptr4;
 char temp3[100];
 cout << "Here are the items in your inventory: " << endl;
 printInventory(inventory);
 cout << "Which item do you want to drop?" << endl;
 cin >> temp3;
-Item RoomItem = currentRoom->getItem(temp3);
-inventory.push_back(RoomItem);
-currentRoom->removeItem(temp3);
-cout << "You have picked up: " << temp3 << endl;
-if(checkComplete(inventory) == true){
-    cout << "Thanks for grabbing all my stuff! I'll have to pay you back sometime." << endl;
-    exit(0);
+for(ptr4 = inventory.begin(); ptr4 != inventory.end(); ptr4++){
+   if(strcmp(ptr4->getDescription(),temp3) == 0){
+       Item tempItem(" ");
+       tempItem = (*ptr4);
+      //erase item from inventory
+      inventory.erase(ptr4);
+      //add newItem to the room
+      currentRoom->setItem(tempItem);
+      cout << "Dropped: " << temp3 << endl;
+    break;
+   }
     }
 }
 
